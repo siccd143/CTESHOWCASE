@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
-import { Component as MagicCursor } from "@/components/ui/magic-cursor";
+import { GlobalOrangeCursor } from "@/components/global-orange-cursor";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "CTE Showcase",
-  description: "A modern showcase for Career and Technical Education programs.",
+  title: "Ayaan Bijinemula",
+  description: "A personal portfolio for Ayaan Bijinemula.",
 };
 
 export default function RootLayout({
@@ -15,7 +15,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <MagicCursor />
+        <GlobalOrangeCursor />
         {children}
       </body>
     </html>

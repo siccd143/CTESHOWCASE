@@ -1,5 +1,7 @@
 import { SiteNav } from "@/components/site-nav";
 import { GlassFilter } from "@/components/ui/liquid-glass";
+import { CircularGallery, type GalleryItem } from "@/components/ui/circular-gallery";
+import ElegantCarousel, { type ElegantSlide } from "@/components/ui/elegant-carousel";
 import { achievements } from "@/lib/portfolio-data";
 import {
   ArrowRight,
@@ -39,6 +41,98 @@ const projects = [
   },
 ];
 
+const galleryItems: GalleryItem[] = [
+  {
+    common: "WTSA Journey",
+    binomial: "Competition / Presentation",
+    photo: {
+      url: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=900&auto=format&fit=crop&q=80",
+      text: "team presentation workspace",
+      pos: "50% 45%",
+      by: "WTSA prep and competition story",
+    },
+  },
+  {
+    common: "Robotics Journey",
+    binomial: "Engineering / Testing",
+    photo: {
+      url: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=900&auto=format&fit=crop&q=80",
+      text: "electronics and circuit board",
+      pos: "50% 50%",
+      by: "robot build and controls",
+    },
+  },
+  {
+    common: "Hackathon Experience",
+    binomial: "Prototype / Demo",
+    photo: {
+      url: "https://images.unsplash.com/photo-1515879218367-8466d910aaa4?w=900&auto=format&fit=crop&q=80",
+      text: "code on a laptop screen",
+      pos: "50% 50%",
+      by: "rapid build sprint",
+    },
+  },
+  {
+    common: "Minecraft Modding",
+    binomial: "Game Systems / Plugins",
+    photo: {
+      url: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=900&auto=format&fit=crop&q=80",
+      text: "gaming setup lights",
+      pos: "52% 48%",
+      by: "custom gameplay systems",
+    },
+  },
+  {
+    common: "Issaquah Spotlight",
+    binomial: "Current Work / Impact",
+    photo: {
+      url: "https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=900&auto=format&fit=crop&q=80",
+      text: "collaborative workspace",
+      pos: "50% 50%",
+      by: "local project contribution",
+    },
+  },
+];
+
+const carouselSlides: ElegantSlide[] = [
+  {
+    title: "WTSA Journey",
+    subtitle: "Competition, preparation, and presentation",
+    description:
+      "A structured page for the events, team role, build process, and lessons from WTSA.",
+    accent: "#ff5a00",
+    imageUrl:
+      "https://images.unsplash.com/photo-1552664730-d307ca884978?w=900&h=1200&fit=crop&q=80",
+  },
+  {
+    title: "Robotics Journey",
+    subtitle: "Engineering decisions and hands-on iteration",
+    description:
+      "A space for mechanisms, programming, testing, competition notes, and what you contributed.",
+    accent: "#e84020",
+    imageUrl:
+      "https://images.unsplash.com/photo-1518770660439-4636190af475?w=900&h=1200&fit=crop&q=80",
+  },
+  {
+    title: "Hackathon Experience",
+    subtitle: "Fast prototyping under pressure",
+    description:
+      "A polished story for the prompt, idea, tech stack, your role, and final demo.",
+    accent: "#f0efeb",
+    imageUrl:
+      "https://images.unsplash.com/photo-1515879218367-8466d910aaa4?w=900&h=1200&fit=crop&q=80",
+  },
+  {
+    title: "Minecraft Modding",
+    subtitle: "Custom mechanics and gameplay systems",
+    description:
+      "A dedicated page for mods, plugins, resource packs, commands, and the problems solved while building them.",
+    accent: "#ff5a00",
+    imageUrl:
+      "https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=900&h=1200&fit=crop&q=80",
+  },
+];
+
 export default function Home() {
   return (
     <main className="site-shell">
@@ -61,6 +155,14 @@ export default function Home() {
                 Personal skills portfolio
               </div>
               <h1>Ayaan Bijinemula</h1>
+            </div>
+            <div className="hero-lower-section">
+              <div className="hero-mini-achievements" aria-label="Featured achievement areas">
+                <span>WTSA</span>
+                <span>Robotics</span>
+                <span>Hackathon</span>
+                <span>Minecraft Modding</span>
+              </div>
               <p>
                 A focused portfolio for presenting my achievements, technical
                 skills, creative work, and the projects that show how I think.
@@ -106,6 +208,24 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="carousel-section">
+        <div className="section-heading">
+          <span>Gallery Option One</span>
+          <h2>Scroll-based circular achievement gallery</h2>
+        </div>
+        <div className="circular-gallery-shell">
+          <CircularGallery items={galleryItems} radius={470} />
+        </div>
+      </section>
+
+      <section className="carousel-section carousel-section-tight">
+        <div className="section-heading">
+          <span>Gallery Option Two</span>
+          <h2>Editorial carousel for achievement stories</h2>
+        </div>
+        <ElegantCarousel slides={carouselSlides} />
+      </section>
+
       <section className="section-block" id="achievements">
         <div className="section-heading">
           <span>Achievements</span>
@@ -136,7 +256,7 @@ export default function Home() {
 
       <section className="stats" aria-label="Portfolio highlights">
         <div className="stat">
-          <strong>04</strong>
+          <strong>05</strong>
           <span>achievement pages</span>
         </div>
         <div className="stat">

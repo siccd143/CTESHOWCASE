@@ -3,6 +3,7 @@ export const navItems = [
   { label: "WTSA", href: "/achievements/wtsa-journey" },
   { label: "Robotics", href: "/achievements/robotics-journey" },
   { label: "Hackathon", href: "/achievements/hackathon-experience" },
+  { label: "Minecraft", href: "/achievements/minecraft-modding" },
   { label: "Spotlight", href: "/achievements/issaquah-spotlight" },
 ];
 
@@ -41,12 +42,23 @@ export const achievements = [
     bullets: ["Problem prompt", "Tech stack", "Your contribution", "Final demo"],
   },
   {
+    slug: "minecraft-modding",
+    title: "Minecraft Modding",
+    eyebrow: "Game Dev",
+    summary:
+      "A technical page for custom Minecraft modding, plugin work, gameplay systems, and creative engineering.",
+    stat: "04",
+    detail:
+      "Use this page to show the mods, plugins, commands, mechanics, resource packs, or gameplay ideas you have built and what technical problems you solved.",
+    bullets: ["Mod concept", "Core mechanics", "Code or tools", "Gameplay result"],
+  },
+  {
     slug: "issaquah-spotlight",
     title: "Issaquah Spotlight",
     eyebrow: "Current Work",
     summary:
       "Current work connected to the Issaquah Spotlight, built to highlight ongoing contribution and local impact.",
-    stat: "04",
+    stat: "05",
     detail:
       "Use this page to explain what the Issaquah Spotlight is, what you are working on right now, and what role you play in it.",
     bullets: ["Current goal", "Your role", "Progress updates", "Next milestone"],
