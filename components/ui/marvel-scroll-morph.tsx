@@ -182,6 +182,7 @@ export default function MarvelScrollMorph() {
 
   useEffect(() => {
     const clamp = (value: number) => Math.min(1, Math.max(0, value));
+    const releaseBuffer = 0.985;
 
     const getSectionTop = () => {
       const section = sectionRef.current;
@@ -216,12 +217,13 @@ export default function MarvelScrollMorph() {
       const current = progressRef.current;
       const wantsDown = event.deltaY > 0;
       const wantsUp = event.deltaY < 0;
-      const shouldLock = (wantsDown && current < 1) || (wantsUp && current > 0);
+      const shouldLock =
+        (wantsDown && current < releaseBuffer) || (wantsUp && current > 0.015);
 
       if (!shouldLock) {
         setIsLocked(false);
-        if (wantsDown && current >= 1) {
-          window.scrollBy({ top: Math.min(Math.abs(event.deltaY), 90), behavior: "smooth" });
+        if (wantsDown && current >= releaseBuffer) {
+          setProgress(1);
         }
         return;
       }
@@ -243,10 +245,14 @@ export default function MarvelScrollMorph() {
       const current = progressRef.current;
       const wantsDown = deltaY > 0;
       const wantsUp = deltaY < 0;
-      const shouldLock = (wantsDown && current < 1) || (wantsUp && current > 0);
+      const shouldLock =
+        (wantsDown && current < releaseBuffer) || (wantsUp && current > 0.015);
 
       if (!shouldLock) {
         setIsLocked(false);
+        if (wantsDown && current >= releaseBuffer) {
+          setProgress(1);
+        }
         return;
       }
 
