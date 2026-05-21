@@ -55,7 +55,7 @@ const frames = [
 function FloatingParticles() {
   return (
     <div className="pointer-events-none absolute inset-0 z-30 overflow-hidden">
-      {Array.from({ length: 24 }).map((_, i) => (
+      {Array.from({ length: 42 }).map((_, i) => (
         <motion.span
           key={i}
           className="absolute h-1 w-1 rounded-full bg-orange-400/70 shadow-[0_0_14px_rgba(255,90,0,.85)]"
@@ -70,7 +70,7 @@ function FloatingParticles() {
             scale: [0.6, 1.4, 0.6],
           }}
           transition={{
-            duration: 3 + (i % 5) * 0.35,
+            duration: 2.4 + (i % 5) * 0.35,
             repeat: Infinity,
             delay: i * 0.05,
             ease: "easeInOut",
@@ -110,9 +110,9 @@ function MorphFrame({
   const scale = useTransform(progress, [start, end], [1.18, 1.02]);
   const rotate = useTransform(progress, [start, end], [-2, 2]);
   const blur = useTransform(progress, [start, peak, end], [
-    "10px",
+    "18px",
     "0px",
-    "10px",
+    "18px",
   ]);
 
   return (
@@ -138,7 +138,7 @@ function MorphFrame({
       <div className="absolute inset-0 flex items-center justify-center px-6">
         <div className="text-center">
           <motion.div
-            className="mx-auto mb-8 flex h-44 w-44 items-center justify-center rounded-[2rem] border border-white/25 bg-white/10 shadow-[0_0_58px_rgba(255,90,0,.28)] backdrop-blur-md md:h-64 md:w-64"
+            className="mx-auto mb-8 flex h-44 w-44 items-center justify-center rounded-[2rem] border border-white/25 bg-white/10 shadow-[0_0_100px_rgba(255,90,0,.32)] backdrop-blur-md md:h-64 md:w-64"
             animate={{
               rotate: [0, 4, -4, 0],
               scale: [1, 1.04, 1],
@@ -167,9 +167,9 @@ export default function MarvelScrollMorph() {
   const touchYRef = useRef<number | null>(null);
   const progressValue = useMotionValue(0);
   const scrollYProgress = useSpring(progressValue, {
-    stiffness: 90,
-    damping: 24,
-    mass: 0.24,
+    stiffness: 120,
+    damping: 28,
+    mass: 0.2,
   });
   const [isLocked, setIsLocked] = useState(false);
 
@@ -182,7 +182,6 @@ export default function MarvelScrollMorph() {
 
   useEffect(() => {
     const clamp = (value: number) => Math.min(1, Math.max(0, value));
-    const releaseBuffer = 0.985;
 
     const getSectionTop = () => {
       const section = sectionRef.current;
@@ -205,7 +204,7 @@ export default function MarvelScrollMorph() {
     };
 
     const driveReel = (deltaY: number) => {
-      setProgress(progressRef.current + deltaY / 1650);
+      setProgress(progressRef.current + deltaY / 1400);
     };
 
     const handleWheel = (event: WheelEvent) => {
@@ -217,14 +216,10 @@ export default function MarvelScrollMorph() {
       const current = progressRef.current;
       const wantsDown = event.deltaY > 0;
       const wantsUp = event.deltaY < 0;
-      const shouldLock =
-        (wantsDown && current < releaseBuffer) || (wantsUp && current > 0.015);
+      const shouldLock = (wantsDown && current < 1) || (wantsUp && current > 0);
 
       if (!shouldLock) {
         setIsLocked(false);
-        if (wantsDown && current >= releaseBuffer) {
-          setProgress(1);
-        }
         return;
       }
 
@@ -245,14 +240,10 @@ export default function MarvelScrollMorph() {
       const current = progressRef.current;
       const wantsDown = deltaY > 0;
       const wantsUp = deltaY < 0;
-      const shouldLock =
-        (wantsDown && current < releaseBuffer) || (wantsUp && current > 0.015);
+      const shouldLock = (wantsDown && current < 1) || (wantsUp && current > 0);
 
       if (!shouldLock) {
         setIsLocked(false);
-        if (wantsDown && current >= releaseBuffer) {
-          setProgress(1);
-        }
         return;
       }
 
@@ -275,12 +266,28 @@ export default function MarvelScrollMorph() {
   }, [progressValue]);
 
   return (
-    <section
-      ref={sectionRef}
-      className={`relative min-h-screen py-6 ${isLocked ? "is-reel-locked" : ""}`}
-    >
-      <div className="z-10 flex min-h-screen items-center justify-center overflow-hidden px-2 md:px-4">
-        <div className="relative h-[92vh] w-full max-w-[104rem] overflow-hidden rounded-[2rem] border border-white/15 bg-white/5 shadow-2xl">
+    <>
+      <section className="flex min-h-screen items-center justify-center px-6 text-center">
+        <div className="max-w-5xl">
+          <p className="mb-4 text-sm uppercase tracking-[0.45em] text-white/45">
+            Scroll Demo
+          </p>
+          <h1 className="text-6xl font-black tracking-tight text-white md:text-8xl">
+            Cinematic achievement morph
+          </h1>
+          <p className="mx-auto mt-7 max-w-2xl text-xl text-white/65">
+            Scroll down to see achievement frames flash, blur, scale, and blend
+            into each other like a movie intro.
+          </p>
+        </div>
+      </section>
+
+      <section
+        ref={sectionRef}
+        className={`relative min-h-screen ${isLocked ? "is-reel-locked" : ""}`}
+      >
+        <div className="z-10 flex h-screen items-center justify-center overflow-hidden px-2 md:px-6">
+          <div className="relative h-[86vh] w-full max-w-[96rem] overflow-hidden rounded-[2.5rem] border border-white/15 bg-white/5 shadow-2xl">
             {frames.map((frame, index) => (
               <MorphFrame
                 frame={frame}
@@ -310,7 +317,7 @@ export default function MarvelScrollMorph() {
               {isLocked ? "Scroll to morph" : "Enter reel"}
             </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </>
   );
 }
