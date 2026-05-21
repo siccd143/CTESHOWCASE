@@ -1,7 +1,7 @@
 import { SiteNav } from "@/components/site-nav";
 import { GlassFilter } from "@/components/ui/liquid-glass";
-import { CircularGallery, type GalleryItem } from "@/components/ui/circular-gallery";
 import ElegantCarousel, { type ElegantSlide } from "@/components/ui/elegant-carousel";
+import MarvelScrollMorph from "@/components/ui/marvel-scroll-morph";
 import { achievements } from "@/lib/portfolio-data";
 import {
   ArrowRight,
@@ -38,59 +38,6 @@ const projects = [
     title: "Achievement Pages",
     detail: "Dedicated pages for awards, leadership, projects, and creative work.",
     icon: Trophy,
-  },
-];
-
-const galleryItems: GalleryItem[] = [
-  {
-    common: "WTSA Journey",
-    binomial: "Competition / Presentation",
-    photo: {
-      url: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=900&auto=format&fit=crop&q=80",
-      text: "team presentation workspace",
-      pos: "50% 45%",
-      by: "WTSA prep and competition story",
-    },
-  },
-  {
-    common: "Robotics Journey",
-    binomial: "Engineering / Testing",
-    photo: {
-      url: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=900&auto=format&fit=crop&q=80",
-      text: "electronics and circuit board",
-      pos: "50% 50%",
-      by: "robot build and controls",
-    },
-  },
-  {
-    common: "Hackathon Experience",
-    binomial: "Prototype / Demo",
-    photo: {
-      url: "https://images.unsplash.com/photo-1515879218367-8466d910aaa4?w=900&auto=format&fit=crop&q=80",
-      text: "code on a laptop screen",
-      pos: "50% 50%",
-      by: "rapid build sprint",
-    },
-  },
-  {
-    common: "Minecraft Modding",
-    binomial: "Game Systems / Plugins",
-    photo: {
-      url: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=900&auto=format&fit=crop&q=80",
-      text: "gaming setup lights",
-      pos: "52% 48%",
-      by: "custom gameplay systems",
-    },
-  },
-  {
-    common: "Issaquah Spotlight",
-    binomial: "Current Work / Impact",
-    photo: {
-      url: "https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=900&auto=format&fit=crop&q=80",
-      text: "collaborative workspace",
-      pos: "50% 50%",
-      by: "local project contribution",
-    },
   },
 ];
 
@@ -208,15 +155,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="carousel-section">
-        <div className="section-heading">
-          <span>Gallery Option One</span>
-          <h2>Scroll-based circular achievement gallery</h2>
-        </div>
-        <div className="circular-gallery-shell">
-          <CircularGallery items={galleryItems} radius={470} />
-        </div>
-      </section>
+      <MarvelScrollMorph />
 
       <section className="carousel-section carousel-section-tight">
         <div className="section-heading">
