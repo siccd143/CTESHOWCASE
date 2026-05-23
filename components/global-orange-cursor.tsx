@@ -4,10 +4,44 @@ import { useEffect, useState } from "react";
 import { Cursor, CursorProvider } from "@/components/ui/cursor";
 import { Component as MagicCursorTrail } from "@/components/ui/magic-cursor";
 
+const CUSTOM_CURSOR_KEY = "customCursorEnabled";
+
 export function GlobalOrangeCursor() {
+  const [customCursorEnabled, setCustomCursorEnabled] = useState(false);
   const [isInteractive, setIsInteractive] = useState(false);
 
   useEffect(() => {
+    const updatePreference = (enabled: boolean) => {
+      setCustomCursorEnabled(enabled);
+      document.documentElement.dataset.customCursor = enabled ? "enabled" : "disabled";
+    };
+
+    updatePreference(window.localStorage.getItem(CUSTOM_CURSOR_KEY) === "true");
+
+    const handlePreferenceChange = (event: Event) => {
+      const enabled = (event as CustomEvent<{ enabled: boolean }>).detail?.enabled;
+      updatePreference(Boolean(enabled));
+    };
+
+    window.addEventListener(
+      "custom-cursor-preference-change",
+      handlePreferenceChange,
+    );
+
+    return () => {
+      window.removeEventListener(
+        "custom-cursor-preference-change",
+        handlePreferenceChange,
+      );
+    };
+  }, []);
+
+  useEffect(() => {
+    if (!customCursorEnabled) {
+      setIsInteractive(false);
+      return;
+    }
+
     const handlePointerMove = (event: PointerEvent) => {
       const target = document.elementFromPoint(event.clientX, event.clientY);
       setIsInteractive(
@@ -28,7 +62,9 @@ export function GlobalOrangeCursor() {
       window.removeEventListener("pointermove", handlePointerMove);
       window.removeEventListener("pointerleave", handlePointerLeave);
     };
-  }, []);
+  }, [customCursorEnabled]);
+
+  if (!customCursorEnabled) return null;
 
   return (
     <>

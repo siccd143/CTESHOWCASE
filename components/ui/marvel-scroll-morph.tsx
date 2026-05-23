@@ -55,7 +55,7 @@ const frames = [
 function FloatingParticles() {
   return (
     <div className="pointer-events-none absolute inset-0 z-30 overflow-hidden">
-      {Array.from({ length: 42 }).map((_, i) => (
+      {Array.from({ length: 18 }).map((_, i) => (
         <motion.span
           key={i}
           className="absolute h-1 w-1 rounded-full bg-orange-400/70 shadow-[0_0_14px_rgba(255,90,0,.85)]"
@@ -110,9 +110,9 @@ function MorphFrame({
   const scale = useTransform(progress, [start, end], [1.18, 1.02]);
   const rotate = useTransform(progress, [start, end], [-2, 2]);
   const blur = useTransform(progress, [start, peak, end], [
-    "18px",
+    "10px",
     "0px",
-    "18px",
+    "10px",
   ]);
 
   return (
@@ -164,12 +164,13 @@ function MorphFrame({
 export default function MarvelScrollMorph() {
   const sectionRef = useRef<HTMLElement | null>(null);
   const progressRef = useRef(0);
+  const lockRef = useRef(false);
   const touchYRef = useRef<number | null>(null);
   const progressValue = useMotionValue(0);
   const scrollYProgress = useSpring(progressValue, {
-    stiffness: 120,
-    damping: 28,
-    mass: 0.2,
+    stiffness: 80,
+    damping: 34,
+    mass: 0.32,
   });
   const [isLocked, setIsLocked] = useState(false);
 
@@ -204,12 +205,17 @@ export default function MarvelScrollMorph() {
     };
 
     const driveReel = (deltaY: number) => {
-      setProgress(progressRef.current + deltaY / 1400);
+      setProgress(progressRef.current + deltaY / 1900);
+    };
+
+    const setLocked = (locked: boolean) => {
+      lockRef.current = locked;
+      setIsLocked(locked);
     };
 
     const handleWheel = (event: WheelEvent) => {
       if (!isSectionMainView()) {
-        setIsLocked(false);
+        setLocked(false);
         return;
       }
 
@@ -219,13 +225,15 @@ export default function MarvelScrollMorph() {
       const shouldLock = (wantsDown && current < 1) || (wantsUp && current > 0);
 
       if (!shouldLock) {
-        setIsLocked(false);
+        setLocked(false);
         return;
       }
 
       event.preventDefault();
-      setIsLocked(true);
-      window.scrollTo({ top: getSectionTop(), behavior: "auto" });
+      if (!lockRef.current) {
+        window.scrollTo({ top: getSectionTop(), behavior: "auto" });
+      }
+      setLocked(true);
       driveReel(event.deltaY);
     };
 
@@ -243,13 +251,15 @@ export default function MarvelScrollMorph() {
       const shouldLock = (wantsDown && current < 1) || (wantsUp && current > 0);
 
       if (!shouldLock) {
-        setIsLocked(false);
+        setLocked(false);
         return;
       }
 
       event.preventDefault();
-      setIsLocked(true);
-      window.scrollTo({ top: getSectionTop(), behavior: "auto" });
+      if (!lockRef.current) {
+        window.scrollTo({ top: getSectionTop(), behavior: "auto" });
+      }
+      setLocked(true);
       driveReel(deltaY);
       touchYRef.current = currentY;
     };
@@ -316,6 +326,7 @@ export default function MarvelScrollMorph() {
             <div className="absolute right-6 top-6 z-40 rounded-full border border-white/15 bg-black/35 px-3 py-2 text-xs font-black uppercase tracking-[0.25em] text-orange-400">
               {isLocked ? "Scroll to morph" : "Enter reel"}
             </div>
+          </div>
         </div>
       </section>
     </>

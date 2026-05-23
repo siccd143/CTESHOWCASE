@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { GlobalOrangeCursor } from "@/components/global-orange-cursor";
+import { SitePreloader } from "@/components/site-preloader";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -16,7 +17,7 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <GlobalOrangeCursor />
-        {children}
+        <SitePreloader>{children}</SitePreloader>
       </body>
     </html>
   );
