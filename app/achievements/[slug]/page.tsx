@@ -1,7 +1,7 @@
 import { SiteNav } from "@/components/site-nav";
 import { GlassFilter } from "@/components/ui/liquid-glass";
 import { achievements, getAchievement } from "@/lib/portfolio-data";
-import { ArrowLeft, CheckCircle2, ImageIcon } from "lucide-react";
+import { ArrowLeft, CheckCircle2, ExternalLink, ImageIcon } from "lucide-react";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
@@ -42,10 +42,20 @@ export default async function AchievementDetailPage({
             <h1>{achievement.title}</h1>
             <p>{achievement.summary}</p>
           </div>
-          <div className="detail-image-placeholder">
-            <ImageIcon size={42} />
-            <span>Achievement image placeholder</span>
-          </div>
+          {achievement.heroImage ? (
+            <figure className="detail-image-card">
+              <img src={achievement.heroImage.src} alt={achievement.heroImage.alt} />
+              <figcaption>
+                <strong>{achievement.heroImage.caption}</strong>
+                <span>{achievement.heroImage.credit}</span>
+              </figcaption>
+            </figure>
+          ) : (
+            <div className="detail-image-placeholder">
+              <ImageIcon size={42} />
+              <span>Achievement image placeholder</span>
+            </div>
+          )}
         </div>
       </section>
 
@@ -67,6 +77,67 @@ export default async function AchievementDetailPage({
           </div>
         </aside>
       </section>
+
+      {achievement.sections ? (
+        <section className="detail-feature-grid">
+          {achievement.sections.map((section) => (
+            <article className="detail-copy-card" key={section.title}>
+              {section.image ? (
+                <figure className="detail-section-media">
+                  {section.image.src ? (
+                    <img src={section.image.src} alt={section.image.alt} />
+                  ) : (
+                    <div className="detail-gallery-placeholder">
+                      <ImageIcon size={34} />
+                    </div>
+                  )}
+                  <figcaption>
+                    <strong>{section.image.title}</strong>
+                    <span>{section.image.caption}</span>
+                  </figcaption>
+                </figure>
+              ) : null}
+              <span className="section-kicker">{section.kicker}</span>
+              <h2>{section.title}</h2>
+              <p>{section.body}</p>
+            </article>
+          ))}
+        </section>
+      ) : null}
+
+      {achievement.gallery ? (
+        <section className="detail-gallery">
+          {achievement.gallery.map((image) => (
+            <figure className="detail-gallery-card" key={image.title}>
+              {image.src ? (
+                <img src={image.src} alt={image.alt} />
+              ) : (
+                <div className="detail-gallery-placeholder">
+                  <ImageIcon size={38} />
+                </div>
+              )}
+              <figcaption>
+                <strong>{image.title}</strong>
+                <span>{image.caption}</span>
+              </figcaption>
+            </figure>
+          ))}
+        </section>
+      ) : null}
+
+      {achievement.sources ? (
+        <section className="detail-sources">
+          <span className="section-kicker">Sources</span>
+          <div>
+            {achievement.sources.map((source) => (
+              <a href={source.href} key={source.href} rel="noreferrer" target="_blank">
+                {source.label}
+                <ExternalLink size={15} />
+              </a>
+            ))}
+          </div>
+        </section>
+      ) : null}
     </main>
   );
 }

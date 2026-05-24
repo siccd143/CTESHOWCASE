@@ -8,9 +8,13 @@ import {
   BadgeCheck,
   Code2,
   Cpu,
+  ExternalLink,
   Layers3,
+  Rocket,
   Sparkles,
+  Target,
   Trophy,
+  Wrench,
 } from "lucide-react";
 import Link from "next/link";
 
@@ -25,19 +29,70 @@ const skills = [
 
 const projects = [
   {
-    title: "Portfolio Website",
-    detail: "A custom black-and-orange site built to present skills and achievements.",
+    title: "CTE Showcase Website",
+    tag: "Frontend",
+    detail:
+      "A custom portfolio built around cinematic interaction, achievement pages, responsive layouts, and a clear personal story.",
     icon: Layers3,
+    proof: ["Next.js", "Motion", "Design system"],
   },
   {
-    title: "Technical Builds",
-    detail: "A placeholder for your best coded, engineered, or workshop-based projects.",
+    title: "IRS 1318 Robotics",
+    tag: "Engineering",
+    detail:
+      "Hands-on Exploration Bot work plus autonomous-period contribution for the main FRC robot.",
     icon: Cpu,
+    proof: ["Exploration Bot", "Autonomous", "Testing"],
   },
   {
-    title: "Achievement Pages",
-    detail: "Dedicated pages for awards, leadership, projects, and creative work.",
+    title: "WTSA Competition Work",
+    tag: "Competition",
+    detail:
+      "Webmaster, Programming, and Robotics work organized into judge-ready sections with image slots and project evidence.",
     icon: Trophy,
+    proof: ["Webmaster", "Programming", "Robotics"],
+  },
+];
+
+const proofHighlights = [
+  {
+    title: "Builds",
+    value: "Hands-on",
+    detail: "Robotics systems, prototypes, and technical project work.",
+    icon: Wrench,
+  },
+  {
+    title: "Code",
+    value: "Applied",
+    detail: "Frontend work, autonomous logic, debugging, and competition programming.",
+    icon: Code2,
+  },
+  {
+    title: "Story",
+    value: "Readable",
+    detail: "Every page is structured so judges can quickly see role, process, and evidence.",
+    icon: Target,
+  },
+];
+
+const timeline = [
+  {
+    label: "Explore",
+    title: "Start with the technical areas",
+    detail:
+      "WTSA, robotics, hackathon work, and modding each get dedicated pages instead of being buried in one long resume.",
+  },
+  {
+    label: "Prove",
+    title: "Show the work behind the result",
+    detail:
+      "Each detail page is built for role, process, decisions, images, sources, and specific contributions.",
+  },
+  {
+    label: "Polish",
+    title: "Make the experience memorable",
+    detail:
+      "The reel, carousel, animated backgrounds, and image cards give the portfolio a clear visual identity.",
   },
 ];
 
@@ -196,20 +251,36 @@ export default function Home() {
       <section className="stats" aria-label="Portfolio highlights">
         <div className="stat">
           <strong>05</strong>
-          <span>achievement pages</span>
+          <span>deep-dive pages</span>
         </div>
         <div className="stat">
-          <strong>06</strong>
-          <span>skill areas</span>
+          <strong>03</strong>
+          <span>WTSA focus areas</span>
         </div>
         <div className="stat">
-          <strong>01</strong>
-          <span>personal brand</span>
+          <strong>1318</strong>
+          <span>FRC team work</span>
         </div>
         <div className="stat">
           <strong>100%</strong>
-          <span>custom presentation</span>
+          <span>custom showcase</span>
         </div>
+      </section>
+
+      <section className="proof-strip" aria-label="What this portfolio proves">
+        {proofHighlights.map((item) => {
+          const Icon = item.icon;
+          return (
+            <article className="proof-card" key={item.title}>
+              <Icon size={22} />
+              <div>
+                <span>{item.title}</span>
+                <h3>{item.value}</h3>
+                <p>{item.detail}</p>
+              </div>
+            </article>
+          );
+        })}
       </section>
 
       <section className="split-section" id="skills">
@@ -234,21 +305,30 @@ export default function Home() {
       <section className="section-block" id="projects">
         <div className="section-heading">
           <span>Projects</span>
-          <h2>Project slots ready for screenshots and details</h2>
+          <h2>Proof-of-work cards, not placeholders</h2>
+          <p>
+            These cards point people toward the work that best shows range:
+            design, programming, robotics, and competition preparation.
+          </p>
         </div>
         <div className="program-grid">
           {projects.map((project) => {
             const Icon = project.icon;
             return (
               <article className="program-card" key={project.title}>
-                <div className="image-placeholder">
-                  <span>Project image</span>
+                <div className="image-placeholder project-proof-visual">
+                  <span>{project.tag}</span>
                   <Icon size={34} />
                 </div>
                 <div className="program-body">
-                  <div className="program-tag">Portfolio</div>
+                  <div className="program-tag">{project.tag}</div>
                   <h3>{project.title}</h3>
                   <p>{project.detail}</p>
+                  <div className="project-proof-tags">
+                    {project.proof.map((item) => (
+                      <span key={item}>{item}</span>
+                    ))}
+                  </div>
                 </div>
               </article>
             );
@@ -256,24 +336,45 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="showcase-timeline">
+        <div className="section-heading compact">
+          <span>How To Read It</span>
+          <h2>A judge-friendly path through the portfolio</h2>
+        </div>
+        <div className="timeline">
+          {timeline.map((item) => (
+            <article className="timeline-row" key={item.label}>
+              <time>{item.label}</time>
+              <div>
+                <strong>{item.title}</strong>
+                <p>{item.detail}</p>
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+
       <section className="details-panel">
         <div>
-          <span className="section-kicker">Next Details Needed</span>
-          <h2>Send your real photo and achievement list.</h2>
+          <span className="section-kicker">Ready For More Evidence</span>
+          <h2>Drop in photos, videos, code links, and awards as you collect them.</h2>
         </div>
         <div className="detail-list">
           <div>
             <Code2 size={20} />
-            <span>Best projects and tools used</span>
+            <span>Code repositories and demo links</span>
           </div>
           <div>
             <Trophy size={20} />
-            <span>Awards, roles, or certifications</span>
+            <span>Awards, roles, and judging results</span>
           </div>
           <div>
-            <Sparkles size={20} />
-            <span>Your preferred hero photo</span>
+            <Rocket size={20} />
+            <span>Robot photos, WTSA screenshots, and build clips</span>
           </div>
+          <Link className="panel-link" href="/achievements">
+            Explore all pages <ExternalLink size={16} />
+          </Link>
         </div>
       </section>
     </main>

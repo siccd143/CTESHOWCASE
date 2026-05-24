@@ -161,6 +161,84 @@ function MorphFrame({
   );
 }
 
+function FlashFramePreview() {
+  const [activeFrame, setActiveFrame] = useState(0);
+
+  useEffect(() => {
+    const frameTimer = window.setInterval(() => {
+      setActiveFrame((current) => (current + 1) % frames.length);
+    }, 850);
+
+    return () => window.clearInterval(frameTimer);
+  }, []);
+
+  const frame = frames[activeFrame];
+
+  return (
+    <section className="flash-preview-section px-4 py-20 md:py-24">
+      <div className="mx-auto w-full max-w-6xl">
+        <div className="flash-preview-header">
+          <p>Auto Preview</p>
+          <h2>Frames flash by on their own.</h2>
+        </div>
+
+        <div className="flash-preview-reel">
+          {frames.map((previewFrame, index) => (
+            <motion.div
+              aria-hidden={index !== activeFrame}
+              className="flash-preview-frame"
+              initial={false}
+              key={previewFrame.title}
+              animate={{
+                opacity: index === activeFrame ? 1 : 0,
+                scale: index === activeFrame ? 1 : 1.08,
+                filter: index === activeFrame ? "blur(0px)" : "blur(12px)",
+              }}
+              transition={{ duration: 0.18, ease: "easeOut" }}
+            >
+              <div
+                className="absolute inset-0"
+                style={{ background: previewFrame.gradient }}
+              />
+              <div
+                className="absolute inset-0 opacity-40"
+                style={{ backgroundImage: previewFrame.pattern }}
+              />
+              <img
+                alt=""
+                className="absolute inset-0 h-full w-full object-cover"
+                src={previewFrame.image}
+                onError={(event) => {
+                  event.currentTarget.style.display = "none";
+                }}
+              />
+            </motion.div>
+          ))}
+
+          <div className="flash-preview-scan" />
+          <div className="flash-preview-grid" />
+          <FloatingParticles />
+
+          <div className="flash-preview-copy">
+            <span>{String(activeFrame + 1).padStart(2, "0")}</span>
+            <h3>{frame.title}</h3>
+            <p>{frame.subtitle}</p>
+          </div>
+
+          <div className="flash-preview-ticks" aria-hidden="true">
+            {frames.map((previewFrame, index) => (
+              <span
+                className={index === activeFrame ? "is-active" : ""}
+                key={previewFrame.title}
+              />
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 export default function MarvelScrollMorph() {
   const sectionRef = useRef<HTMLElement | null>(null);
   const progressRef = useRef(0);
@@ -291,6 +369,8 @@ export default function MarvelScrollMorph() {
           </p>
         </div>
       </section>
+
+      <FlashFramePreview />
 
       <section
         ref={sectionRef}
