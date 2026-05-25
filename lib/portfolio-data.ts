@@ -158,11 +158,52 @@ export const achievements = [
     title: "Hackathon Experience",
     eyebrow: "Build Sprint",
     summary:
-      "A fast-paced story of ideation, prototyping, collaboration, and presenting under pressure.",
+      "Hackathon work focused on fast prototyping, accessibility, computer vision, and presenting useful demos under pressure.",
     stat: "03",
     detail:
-      "Use this page for the problem prompt, your team's idea, the tech stack, what you personally built, and the final demo.",
-    bullets: ["Problem prompt", "Tech stack", "Your contribution", "Final demo"],
+      "My hackathon work shows how I move from a real problem to a working technical prototype. The most important example is a Youth X Code project built around helping visually impaired people understand information from physical paper using a YOLO 26 computer vision model.",
+    bullets: [
+      "Youth X Code accessibility project",
+      "YOLO 26 model training",
+      "Paper document analysis",
+      "Prototype demo and presentation",
+    ],
+    sections: [
+      {
+        kicker: "Youth X Code",
+        title: "Training YOLO 26 For Paper Accessibility",
+        image: {
+          title: "Youth X Code Demo",
+          caption: "Add a screenshot, model-training image, or demo photo from the hackathon here.",
+        },
+        body:
+          "At another Youth X Code hackathon, I worked on an accessibility-focused prototype for visually impaired users. The idea was to train a YOLO 26 model to detect and analyze useful information from physical paper, then turn that visual information into something easier to understand. The project connected machine learning, dataset preparation, object detection, and human-centered design: the model was not just meant to recognize paper content, but to make printed information more usable for someone who cannot easily read it visually.",
+      },
+      {
+        kicker: "Computer Vision",
+        title: "From Physical Paper To Structured Information",
+        image: {
+          title: "Paper Analysis Pipeline",
+          caption: "Photo slot for labeled data, paper examples, detection boxes, or output results.",
+        },
+        body:
+          "The technical challenge was translating a messy real-world object into reliable digital feedback. Physical paper can have different layouts, lighting, handwriting, printed text, diagrams, and important regions. Training the YOLO 26 model meant thinking about what needed to be detected, how training examples should be labeled, and how model output could support a clearer assistive experience instead of stopping at raw bounding boxes.",
+      },
+    ],
+    gallery: [
+      {
+        title: "Youth X Code Team",
+        caption: "Photo slot for the hackathon team, table setup, or presentation moment.",
+      },
+      {
+        title: "YOLO 26 Training",
+        caption: "Photo slot for model training, labeled examples, or detection results.",
+      },
+      {
+        title: "Accessibility Demo",
+        caption: "Photo slot for the paper-analysis demo or final prototype output.",
+      },
+    ],
   },
   {
     slug: "minecraft-modding",

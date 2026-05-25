@@ -167,7 +167,7 @@ function FlashFramePreview() {
   useEffect(() => {
     const frameTimer = window.setInterval(() => {
       setActiveFrame((current) => (current + 1) % frames.length);
-    }, 850);
+    }, 500);
 
     return () => window.clearInterval(frameTimer);
   }, []);
