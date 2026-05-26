@@ -98,12 +98,24 @@ export const achievements = [
       {
         kicker: "My Role",
         title: "Programmer Supporting The Robot Team",
+        image: {
+          src: "/images/showcase/programminginfrc.png",
+          alt: "GitHub repository page for the Exploration Bot 2026 robot code",
+          title: "Programmer Supporting The Robot Team",
+          caption: "Robot code work connected to the Exploration Bot and FRC Team 1318 programming.",
+        },
         body:
           "On IRS 1318, I was mainly a programmer. My work focused on understanding how robot code connects to real robot behavior through testing, debugging, and iteration. I also helped the seniors while they worked on the main bot, which helped me see how experienced team members approach build decisions, integration, and competition preparation.",
       },
       {
         kicker: "Main Robot",
         title: "Helping Seniors With The Main Bot",
+        image: {
+          src: "https://i.imgur.com/8ZpuQn8.jpeg",
+          alt: "Aureus, FRC Team 1318's 2026 competition robot",
+          title: "Helping Seniors With The Main Bot",
+          caption: "The main competition robot I helped seniors with while learning build, wiring, controls, testing, and code integration.",
+        },
         body:
           "The main competition robot was primarily built by the senior members of the team, and I helped where I could while learning from their process. Watching and supporting that work helped me understand how a competition robot has to be reliable, serviceable, and coordinated across mechanical design, wiring, controls, testing, and code.",
       },
@@ -122,12 +134,24 @@ export const achievements = [
       {
         kicker: "Code",
         title: "Testing And Debugging Robot Code",
+        image: {
+          src: "/images/showcase/codingimage.jpg",
+          alt: "Generic coding workspace image",
+          title: "Testing And Debugging Robot Code",
+          caption: "Programming work focused on testing, debugging, and matching code to real robot behavior.",
+        },
         body:
           "My programming work was about making code match what the robot could actually do. That meant thinking through timing, movement consistency, driver expectations, and how software interacts with real mechanical limits. Robotics taught me that code has to be tested on the machine, because real-world behavior exposes problems that do not always show up on a computer screen.",
       },
       {
         kicker: "Robot Detail",
         title: "What The Main Bot Needed To Do",
+        image: {
+          src: "/images/showcase/mainrobotgoalimg.jpeg",
+          alt: "FRC Team 1318 robot collecting yellow game pieces near the field goal",
+          title: "What The Main Bot Needed To Do",
+          caption: "The main bot needed reliable mechanisms, controls, and code to perform repeatable match tasks.",
+        },
         body:
           "The main bot needed to bring together the full competition stack: a chassis that could move predictably, mechanisms that could repeat under pressure, controls that drivers could trust, and code that matched the robot's actual behavior. The important lesson for me was integration. A mechanism only matters if the wiring, controls, code, and driver practice can make it repeatable in a match.",
       },
@@ -136,26 +160,6 @@ export const achievements = [
       title: "Team 1318 Robot Video",
       embedUrl: "https://www.youtube.com/embed/dX_LlfgavCM",
     },
-    gallery: [
-      {
-        src: "https://i.imgur.com/8ZpuQn8.jpeg",
-        alt: "Aureus, FRC Team 1318's 2026 competition robot",
-        title: "Aureus",
-        caption: "Online reference image from Team 1318's 2026 page on The Blue Alliance.",
-      },
-      {
-        src: "/images/showcase/explorationbotimg1.jpg",
-        alt: "Exploration Bot robot on carpet near stairs",
-        title: "Exploration Bot",
-        caption: "The bot I worked on directly for build, testing, wiring, and system learning.",
-      },
-      {
-        src: "/images/showcase/frc1318currentyearimg.webp",
-        alt: "FRC Team 1318 current-year robot on the field",
-        title: "Team 1318 Robot",
-        caption: "Competition robot example connected to the systems I studied through FRC.",
-      },
-    ],
     sources: [
       {
         label: "The Blue Alliance: Team 1318 2026",
