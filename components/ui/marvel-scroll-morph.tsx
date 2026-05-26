@@ -11,44 +11,36 @@ import {
 
 const frames = [
   {
-    title: "Robotics",
-    subtitle: "Vision systems - autonomous calibration",
+    title: "Exploration Bot",
+    subtitle: "Hands-on robot build and testing",
     gradient: "linear-gradient(135deg, #ff5a00 0%, #e84020 42%, #000 100%)",
     pattern:
       "radial-gradient(circle at 30% 30%, rgba(255,255,255,.35), transparent 12%), radial-gradient(circle at 70% 60%, rgba(255,255,255,.18), transparent 10%)",
-    image: "/images/robotics.jpg",
+    image: "/images/showcase/explorationbotimg1.jpg",
   },
   {
-    title: "Engineering",
-    subtitle: "Mechanical systems - precision control",
+    title: "Team 1318",
+    subtitle: "Competition robot engineering",
     gradient: "linear-gradient(135deg, #f0efeb 0%, #e84020 38%, #000 100%)",
     pattern:
       "linear-gradient(120deg, rgba(255,255,255,.26) 0 2px, transparent 2px 22px)",
-    image: "/images/engineering.jpg",
+    image: "/images/showcase/frc1318currentyearimg.webp",
   },
   {
-    title: "Code",
-    subtitle: "Interfaces - automation - AI tools",
-    gradient: "linear-gradient(135deg, #111 0%, #ff5a00 44%, #000 100%)",
-    pattern:
-      "radial-gradient(circle at 20% 70%, rgba(255,255,255,.25), transparent 14%), radial-gradient(circle at 80% 20%, rgba(255,255,255,.16), transparent 12%)",
-    image: "/images/code.jpg",
-  },
-  {
-    title: "Innovation",
-    subtitle: "Ideas built frame by frame",
+    title: "Custom Mod",
+    subtitle: "Minecraft modded experience",
     gradient: "linear-gradient(135deg, #e84020 0%, #5c170c 44%, #000 100%)",
     pattern:
       "linear-gradient(45deg, rgba(255,255,255,.2) 0 1px, transparent 1px 18px)",
-    image: "/images/innovation.jpg",
+    image: "/images/showcase/mcimg2.jpeg",
   },
   {
-    title: "Portfolio",
-    subtitle: "A cinematic hero for your website",
-    gradient: "linear-gradient(135deg, #ff5a00 0%, #361006 45%, #000 100%)",
+    title: "YOLO 26 Training",
+    subtitle: "Computer vision accessibility model",
+    gradient: "linear-gradient(135deg, #111 0%, #ff5a00 44%, #000 100%)",
     pattern:
-      "radial-gradient(circle at 50% 30%, rgba(255,255,255,.3), transparent 16%), radial-gradient(circle at 30% 80%, rgba(255,255,255,.16), transparent 10%)",
-    image: "/images/portfolio.jpg",
+      "radial-gradient(circle at 20% 70%, rgba(255,255,255,.25), transparent 14%), radial-gradient(circle at 80% 20%, rgba(255,255,255,.16), transparent 12%)",
+    image: "/images/showcase/yolo26modeltrainingimg.webp",
   },
 ];
 
@@ -161,7 +153,7 @@ function MorphFrame({
   );
 }
 
-function FlashFramePreview() {
+export function FlashFramePreview() {
   const [activeFrame, setActiveFrame] = useState(0);
 
   useEffect(() => {
@@ -177,11 +169,6 @@ function FlashFramePreview() {
   return (
     <section className="flash-preview-section px-4 py-20 md:py-24">
       <div className="mx-auto w-full max-w-6xl">
-        <div className="flash-preview-header">
-          <p>Auto Preview</p>
-          <h2>Frames flash by on their own.</h2>
-        </div>
-
         <div className="flash-preview-reel">
           {frames.map((previewFrame, index) => (
             <motion.div
@@ -251,13 +238,6 @@ export default function MarvelScrollMorph() {
     mass: 0.32,
   });
   const [isLocked, setIsLocked] = useState(false);
-
-  const titleY = useTransform(scrollYProgress, [0, 1], [0, -80]);
-  const titleOpacity = useTransform(
-    scrollYProgress,
-    [0, 0.12, 0.9, 1],
-    [0, 1, 1, 0],
-  );
 
   useEffect(() => {
     const clamp = (value: number) => Math.min(1, Math.max(0, value));
@@ -370,8 +350,6 @@ export default function MarvelScrollMorph() {
         </div>
       </section>
 
-      <FlashFramePreview />
-
       <section
         ref={sectionRef}
         className={`relative min-h-screen ${isLocked ? "is-reel-locked" : ""}`}
@@ -392,17 +370,6 @@ export default function MarvelScrollMorph() {
             <div className="absolute inset-0 z-20 bg-gradient-to-t from-black via-transparent to-black/40" />
             <div className="absolute inset-0 z-20 bg-[linear-gradient(90deg,rgba(255,255,255,.08)_1px,transparent_1px),linear-gradient(rgba(255,255,255,.05)_1px,transparent_1px)] bg-[size:46px_46px] opacity-20" />
 
-            <motion.div
-              style={{ y: titleY, opacity: titleOpacity }}
-              className="absolute bottom-12 left-8 right-8 z-30 md:bottom-16 md:left-16"
-            >
-              <p className="mb-3 text-xs uppercase tracking-[0.45em] text-orange-400">
-                Interactive Hero
-              </p>
-              <h3 className="max-w-5xl text-4xl font-black leading-tight text-white md:text-7xl">
-                A scroll-controlled intro sequence for Ayaan&apos;s portfolio.
-              </h3>
-            </motion.div>
             <div className="absolute right-6 top-6 z-40 rounded-full border border-white/15 bg-black/35 px-3 py-2 text-xs font-black uppercase tracking-[0.25em] text-orange-400">
               {isLocked ? "Scroll to morph" : "Enter reel"}
             </div>

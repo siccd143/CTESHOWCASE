@@ -18,58 +18,58 @@ export const achievements = [
     detail:
       "WTSA gave me a way to turn technical interests into competition projects. My work connects web design, programming, and robotics: building polished interfaces, solving code problems under constraints, and applying engineering thinking to systems that have to be explained clearly and tested carefully.",
     bullets: ["Webmaster", "Programming", "Robotics", "Competition preparation"],
+    heroImage: {
+      src: "/images/showcase/wtsa-logo.png",
+      alt: "Washington TSA logo with orca, Space Needle, mountains, and TSA mark",
+      caption: "Washington TSA",
+      credit: "Image source: Washington Technology Student Association",
+    },
     sections: [
       {
-        kicker: "Webmaster",
-        title: "Building For A Real Audience",
+        kicker: "Web Design",
+        title: "Building Websites For A Real Audience",
         image: {
-          title: "Webmaster Screenshot",
-          caption: "Add one of your Webmaster URLs or screenshots here.",
+          src: "/images/showcase/issaquah-river-guide-webdesign.png",
+          alt: "Issaquah River Guide web design screenshot",
+          title: "Issaquah River Guide",
+          caption: "A community website for Issaquah focused on local resources, navigation, and a polished user experience.",
         },
         body:
-          "In Webmaster, I focused on creating a site that was organized, usable, and visually polished. The work combined layout, navigation, content structure, responsiveness, and presentation. It pushed me to think beyond just making pages work: the site had to communicate clearly, look intentional, and guide judges through the project without confusion.",
+          "In Web Design, I focused on making sites that are organized, usable, and visually intentional. One project was a community resource website for Issaquah, built to help people find local resources and information. Another was a restaurant website, where the goal was to make the brand, menu, and experience easy to understand. Both projects pushed me to think beyond just making pages work: the site had to communicate clearly and guide viewers without confusion.",
+        links: [
+          {
+            label: "Issaquah Community Site",
+            href: "https://community-resource-website.vercel.app/",
+          },
+          {
+            label: "Taste Of Venice",
+            href: "https://taste-of-venice.weebly.com/",
+          },
+        ],
       },
       {
-        kicker: "Programming",
-        title: "Problem Solving Under Constraints",
+        kicker: "Coding",
+        title: "Problem Solving With Code",
         image: {
-          src: "https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=1200&q=80",
-          alt: "Code editor on a laptop used to represent programming work",
-          title: "Programming Work",
-          caption: "Coding, debugging, and problem-solving preparation.",
+          src: "/images/showcase/codingimage.jpg",
+          alt: "Coding work screenshot",
+          title: "Coding Work",
+          caption: "Coding helped me practice logic, debugging, problem solving, and building working solutions.",
         },
         body:
-          "Programming helped me practice breaking problems into smaller parts, choosing the right logic, and debugging quickly. I treated it as both a coding challenge and a communication challenge: the solution needed to work, but I also needed to understand why it worked well enough to explain decisions and improve it under pressure.",
+          "Coding helped me practice breaking problems into smaller parts, choosing the right logic, and debugging quickly. It also connected to what I learned in AP Comp Sci about how AI uses data, patterns, algorithms, and feedback to learn from examples.",
       },
       {
         kicker: "Robotics",
-        title: "Engineering Meets Competition",
+        title: "Robotics Meets Competition",
         image: {
-          title: "WTSA Robotics Image",
-          caption: "Add your WTSA Robotics image here.",
+          src: "/images/showcase/vexv5img.jpg",
+          alt: "VEX V5 robot",
+          title: "VEX V5 Robotics",
+          caption: "Robotics helped me connect mechanisms, controls, testing, and competition strategy.",
         },
         body:
-          "The robotics side of WTSA connected directly to my interest in hands-on engineering. I worked on thinking through robot behavior, mechanisms, constraints, and testing. It helped me connect design decisions to real performance: how a robot moves, how reliable it is, and how clearly the engineering process can be presented.",
-      },
-    ],
-    gallery: [
-      {
-        title: "Webmaster URL 1",
-        caption: "Paste the first Webmaster image or project URL here.",
-      },
-      {
-        title: "Webmaster URL 2",
-        caption: "Paste the second Webmaster image or project URL here.",
-      },
-      {
-        src: "https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=1200&q=80",
-        alt: "Programming workspace with code on screen",
-        title: "Programming Work",
-        caption: "Programming image representing code, debugging, and competition problem solving.",
-      },
-      {
-        title: "WTSA Robotics",
-        caption: "Photo slot for your WTSA Robotics image.",
+          "The robotics side of WTSA connected directly to hands-on engineering. I worked on thinking through robot behavior, mechanisms, constraints, and testing. It helped me connect design decisions to real performance: how a robot moves, how reliable it is, and how clearly the engineering process can be presented.",
       },
     ],
   },
@@ -78,54 +78,64 @@ export const achievements = [
     title: "Robotics Journey",
     eyebrow: "FRC Team 1318",
     summary:
-      "My role on Issaquah Robotics Society, FRC Team 1318, during the REBUILT season.",
+      "My programming role on Issaquah Robotics Society, FRC Team 1318, with most of my hands-on work centered on the Exploration Bot.",
     stat: "02",
     detail:
-      "My role on IRS 1318 was split between hands-on robot development and software work. I worked directly on the Exploration Bot, used it to learn and test robot systems, and contributed to the main competition robot's autonomous period. That meant I was not just watching the season happen: I was building, testing, debugging, and helping connect prototype work to match-ready behavior.",
+      "My role on IRS 1318 was mainly as a programmer. I worked most directly on the Exploration Bot, where I learned robot systems through testing, debugging, and code changes. I also helped the seniors as they built the main competition robot, which gave me a better understanding of how the mechanical, electrical, and software parts of a robot have to come together.",
     bullets: [
-      "My role on IRS 1318",
-      "Exploration Bot work",
-      "Main robot autonomous period",
-      "Aureus robot development",
+      "Programmer on IRS 1318",
+      "Mainly worked on Exploration Bot",
+      "Helped seniors with the main bot",
+      "Testing and debugging robot behavior",
     ],
     heroImage: {
-      src: "https://i.imgur.com/8ZpuQn8.jpeg",
-      alt: "FRC Team 1318 robot Aureus during the 2026 REBUILT season",
-      caption: "Aureus, Team 1318's 2026 competition robot",
-      credit: "Image source: The Blue Alliance / Imgur",
+      src: "/images/showcase/frc1318currentyearimg.webp",
+      alt: "FRC Team 1318 current-year robot on the field",
+      caption: "Team 1318 current-year robot",
+      credit: "Personal portfolio image",
     },
     sections: [
       {
         kicker: "My Role",
-        title: "Builder and Programmer",
+        title: "Programmer Supporting The Robot Team",
         body:
-          "On IRS 1318, my work sat between mechanical learning, testing, and robot code. I helped with the Exploration Bot as my direct build project, then carried that experience into software work for the main robot. My biggest focus areas were understanding how robot systems behave in the real world, helping test ideas, and contributing to autonomous-period behavior for competition.",
+          "On IRS 1318, I was mainly a programmer. My work focused on understanding how robot code connects to real robot behavior through testing, debugging, and iteration. I also helped the seniors while they worked on the main bot, which helped me see how experienced team members approach build decisions, integration, and competition preparation.",
       },
       {
         kicker: "Main Robot",
-        title: "Aureus in REBUILT",
+        title: "Helping Seniors With The Main Bot",
         body:
-          "Aureus was Team 1318's 2026 REBUILT competition robot. The robot had to be reliable enough for repeated match cycles, structured enough for autonomous routines, and serviceable enough to survive constant iteration between practices and events. Work on Aureus connected mechanical design, controls, wiring, driver feedback, field testing, and code changes into one system.",
+          "The main competition robot was primarily built by the senior members of the team, and I helped where I could while learning from their process. Watching and supporting that work helped me understand how a competition robot has to be reliable, serviceable, and coordinated across mechanical design, wiring, controls, testing, and code.",
       },
       {
         kicker: "Build",
         title: "Exploration Bot",
+        image: {
+          src: "/images/showcase/explorationbotimg1.jpg",
+          alt: "Exploration Bot robot on carpet near stairs",
+          title: "Exploration Bot",
+          caption: "The robot I worked on directly for build, testing, wiring, and system learning.",
+        },
         body:
-          "The Exploration Bot was the robot I worked on most directly. It gave me a place to learn how components fit together, test mechanical and control ideas, and debug issues before they became competition-robot problems. I used it to understand the practical side of robotics: layout, wiring, structure, drivetrain behavior, mechanism testing, and how small build decisions affect software and controls.",
+          "The Exploration Bot was the robot I worked on most directly. It gave me a place to learn how components fit together, test robot behavior, and debug issues in a lower-pressure environment. I used it to understand the practical side of robotics: layout, wiring, drivetrain behavior, mechanism testing, and how small build decisions affect software and controls.",
       },
       {
         kicker: "Code",
-        title: "Main Robot Auto",
+        title: "Testing And Debugging Robot Code",
         body:
-          "I also worked on the main robot's autonomous period. My contribution focused on making sure the robot could run planned actions before driver control started, which meant thinking through timing, starting position, movement consistency, and how code matched the robot's real mechanical limits. Auto work forced every assumption to be tested on the robot, not just in code.",
+          "My programming work was about making code match what the robot could actually do. That meant thinking through timing, movement consistency, driver expectations, and how software interacts with real mechanical limits. Robotics taught me that code has to be tested on the machine, because real-world behavior exposes problems that do not always show up on a computer screen.",
       },
       {
         kicker: "Robot Detail",
-        title: "What Aureus Needed To Do",
+        title: "What The Main Bot Needed To Do",
         body:
-          "Aureus had to bring together the full competition stack: a chassis that could move predictably, mechanisms that could repeat under pressure, controls that drivers could trust, and autonomous behavior that worked from known field setups. The important engineering challenge was integration. A mechanism only mattered if the code, wiring, controls, and driver practice could make it repeatable in a match.",
+          "The main bot needed to bring together the full competition stack: a chassis that could move predictably, mechanisms that could repeat under pressure, controls that drivers could trust, and code that matched the robot's actual behavior. The important lesson for me was integration. A mechanism only matters if the wiring, controls, code, and driver practice can make it repeatable in a match.",
       },
     ],
+    video: {
+      title: "Team 1318 Robot Video",
+      embedUrl: "https://www.youtube.com/embed/dX_LlfgavCM",
+    },
     gallery: [
       {
         src: "https://i.imgur.com/8ZpuQn8.jpeg",
@@ -134,12 +144,16 @@ export const achievements = [
         caption: "Online reference image from Team 1318's 2026 page on The Blue Alliance.",
       },
       {
+        src: "/images/showcase/explorationbotimg1.jpg",
+        alt: "Exploration Bot robot on carpet near stairs",
         title: "Exploration Bot",
-        caption: "Photo slot for the bot I worked on directly. Add a build-table or full-robot photo here.",
+        caption: "The bot I worked on directly for build, testing, wiring, and system learning.",
       },
       {
-        title: "Exploration Bot Detail",
-        caption: "Photo slot for a mechanism, wiring, drivetrain, or testing close-up from the Exploration Bot.",
+        src: "/images/showcase/frc1318currentyearimg.webp",
+        alt: "FRC Team 1318 current-year robot on the field",
+        title: "Team 1318 Robot",
+        caption: "Competition robot example connected to the systems I studied through FRC.",
       },
     ],
     sources: [
@@ -173,8 +187,10 @@ export const achievements = [
         kicker: "Youth X Code",
         title: "Training YOLO 26 For Paper Accessibility",
         image: {
+          src: "/images/showcase/yolo26modeltrainingimg.webp",
+          alt: "YOLO 26 model training notebook in Google Colab",
           title: "Youth X Code Demo",
-          caption: "Add a screenshot, model-training image, or demo photo from the hackathon here.",
+          caption: "Training a YOLO 26 model for the Youth X Code accessibility prototype.",
         },
         body:
           "At another Youth X Code hackathon, I worked on an accessibility-focused prototype for visually impaired users. The idea was to train a YOLO 26 model to detect and analyze useful information from physical paper, then turn that visual information into something easier to understand. The project connected machine learning, dataset preparation, object detection, and human-centered design: the model was not just meant to recognize paper content, but to make printed information more usable for someone who cannot easily read it visually.",
@@ -183,8 +199,10 @@ export const achievements = [
         kicker: "Computer Vision",
         title: "From Physical Paper To Structured Information",
         image: {
+          src: "/images/showcase/yolo26modeltrainingimg.webp",
+          alt: "YOLO 26 model training notebook in Google Colab",
           title: "Paper Analysis Pipeline",
-          caption: "Photo slot for labeled data, paper examples, detection boxes, or output results.",
+          caption: "Training setup for the paper-analysis computer vision prototype.",
         },
         body:
           "The technical challenge was translating a messy real-world object into reliable digital feedback. Physical paper can have different layouts, lighting, handwriting, printed text, diagrams, and important regions. Training the YOLO 26 model meant thinking about what needed to be detected, how training examples should be labeled, and how model output could support a clearer assistive experience instead of stopping at raw bounding boxes.",
@@ -192,16 +210,22 @@ export const achievements = [
     ],
     gallery: [
       {
-        title: "Youth X Code Team",
-        caption: "Photo slot for the hackathon team, table setup, or presentation moment.",
+        src: "/images/showcase/yolo26modeltrainingimg.webp",
+        alt: "YOLO 26 model training notebook in Google Colab",
+        title: "Training Setup",
+        caption: "The model training workflow behind the accessibility prototype.",
       },
       {
+        src: "/images/showcase/yolo26modeltrainingimg.webp",
+        alt: "YOLO 26 model training notebook in Google Colab",
         title: "YOLO 26 Training",
-        caption: "Photo slot for model training, labeled examples, or detection results.",
+        caption: "Model training evidence from the Youth X Code paper-analysis prototype.",
       },
       {
-        title: "Accessibility Demo",
-        caption: "Photo slot for the paper-analysis demo or final prototype output.",
+        src: "/images/showcase/yolo26modeltrainingimg.webp",
+        alt: "YOLO 26 model training notebook in Google Colab",
+        title: "Paper Analysis Prototype",
+        caption: "A computer vision workflow designed around making physical paper easier to understand.",
       },
     ],
   },
@@ -213,8 +237,36 @@ export const achievements = [
       "A technical page for custom Minecraft modding, plugin work, gameplay systems, and creative engineering.",
     stat: "04",
     detail:
-      "Use this page to show the mods, plugins, commands, mechanics, resource packs, or gameplay ideas you have built and what technical problems you solved.",
+      "Minecraft modding let me combine creativity with technical problem solving. I used custom visuals and gameplay ideas to practice how small system changes can affect the feel of a game.",
     bullets: ["Mod concept", "Core mechanics", "Code or tools", "Gameplay result"],
+    heroImage: {
+      src: "/images/showcase/mcimg2.jpeg",
+      alt: "Minecraft custom mod showcase scene",
+      caption: "Custom Minecraft mod showcase",
+      credit: "Personal portfolio image",
+    },
+    sections: [
+      {
+        kicker: "Custom Mod",
+        title: "Building A Different Game Feel",
+        image: {
+          src: "/images/showcase/mcimg2.jpeg",
+          alt: "Minecraft custom mod showcase scene",
+          title: "Custom Mod Visual",
+          caption: "The mod page focuses on custom gameplay, visuals, and the choices behind the experience.",
+        },
+        body:
+          "This project shows how modding can change how a game feels without needing to rebuild the whole game. I focused on how custom visuals, mechanics, and item ideas can make the experience feel more personal and intentional.",
+      },
+    ],
+    gallery: [
+      {
+        src: "/images/showcase/mcimg2.jpeg",
+        alt: "Minecraft custom mod showcase scene",
+        title: "Custom Mod",
+        caption: "A visual example from the Minecraft modding work.",
+      },
+    ],
   },
   {
     slug: "issaquah-spotlight",
@@ -224,8 +276,8 @@ export const achievements = [
       "Current work connected to the Issaquah Spotlight, built to highlight ongoing contribution and local impact.",
     stat: "05",
     detail:
-      "Use this page to explain what the Issaquah Spotlight is, what you are working on right now, and what role you play in it.",
-    bullets: ["Current goal", "Your role", "Progress updates", "Next milestone"],
+      "Issaquah Spotlight represents current work and local impact. This page explains the goal, my role, what progress looks like, and how the project connects to communication, service, and technical presentation.",
+    bullets: ["Current goal", "My role", "Progress updates", "Next milestone"],
   },
 ];
 

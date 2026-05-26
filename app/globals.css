@@ -830,7 +830,7 @@ html[data-custom-cursor="enabled"] [data-cursor="button"]:hover {
   max-width: 640px;
   padding: clamp(24px, 5vw, 54px);
   position: absolute;
-  top: clamp(44px, 7vh, 82px);
+  top: clamp(130px, 18vh, 190px);
   z-index: 2;
 }
 
@@ -934,6 +934,22 @@ html[data-custom-cursor="enabled"] [data-cursor="button"]:hover {
   margin: 0;
 }
 
+.hero-journey-timeline {
+  gap: 0;
+  padding-left: 8px;
+  position: relative;
+}
+
+.hero-journey-timeline::before {
+  background: linear-gradient(180deg, rgba(255, 90, 0, 0.7), rgba(255, 90, 0, 0.08));
+  bottom: 16px;
+  content: "";
+  left: 27px;
+  position: absolute;
+  top: 16px;
+  width: 2px;
+}
+
 .hero-achievement-link {
   align-items: start;
   background: rgba(255, 255, 255, 0.055);
@@ -947,10 +963,38 @@ html[data-custom-cursor="enabled"] [data-cursor="button"]:hover {
   transition: border-color 180ms, transform 180ms, background 180ms;
 }
 
+.hero-journey-timeline .hero-achievement-link {
+  background: transparent;
+  border-color: transparent;
+  border-radius: 14px;
+  grid-template-columns: 42px 1fr auto;
+  min-height: 88px;
+  padding: 12px 10px;
+  position: relative;
+}
+
+.hero-journey-timeline .hero-achievement-link > span {
+  align-items: center;
+  background: #111111;
+  border: 1px solid rgba(255, 90, 0, 0.52);
+  border-radius: 50%;
+  display: flex;
+  height: 38px;
+  justify-content: center;
+  position: relative;
+  width: 38px;
+  z-index: 1;
+}
+
 .hero-achievement-link:hover {
   background: rgba(255, 255, 255, 0.08);
   border-color: rgba(255, 90, 0, 0.56);
   transform: translateX(4px);
+}
+
+.hero-journey-timeline .hero-achievement-link:hover {
+  background: rgba(255, 255, 255, 0.07);
+  border-color: rgba(255, 90, 0, 0.3);
 }
 
 .primary-button:hover,
@@ -2345,6 +2389,21 @@ html[data-custom-cursor="enabled"] [data-cursor="button"]:hover {
   min-height: 360px;
 }
 
+.detail-image-card-contain {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  padding: clamp(36px, 7vw, 86px);
+}
+
+.detail-image-card-contain img {
+  height: auto;
+  max-height: 220px;
+  min-height: 0;
+  object-fit: contain;
+  width: min(100%, 520px);
+}
+
 .detail-section-media {
   aspect-ratio: 16 / 9;
   border-radius: 18px;
@@ -2454,6 +2513,7 @@ html[data-custom-cursor="enabled"] [data-cursor="button"]:hover {
 
 .detail-feature-grid,
 .detail-gallery,
+.detail-video,
 .detail-sources {
   margin: 18px auto 0;
   max-width: 1180px;
@@ -2464,7 +2524,38 @@ html[data-custom-cursor="enabled"] [data-cursor="button"]:hover {
 .detail-feature-grid {
   display: grid;
   gap: 18px;
-  grid-template-columns: repeat(2, 1fr);
+}
+
+.detail-feature-grid .detail-copy-card {
+  align-items: center;
+  display: grid;
+  gap: 22px;
+  grid-template-columns: minmax(260px, 0.9fr) 1fr;
+}
+
+.detail-feature-grid .detail-section-media {
+  grid-row: 1 / span 4;
+  margin: 0;
+}
+
+.section-link-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.section-link-row a {
+  align-items: center;
+  background: rgba(255, 90, 0, 0.14);
+  border: 1px solid rgba(255, 90, 0, 0.34);
+  border-radius: 999px;
+  color: var(--cream);
+  display: inline-flex;
+  font-size: 0.82rem;
+  font-weight: 850;
+  gap: 8px;
+  padding: 9px 12px;
 }
 
 .detail-gallery {
@@ -2475,6 +2566,29 @@ html[data-custom-cursor="enabled"] [data-cursor="button"]:hover {
 
 .detail-gallery-card {
   aspect-ratio: 16 / 10;
+}
+
+.detail-video {
+  background: rgba(17, 17, 17, 0.86);
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  padding: clamp(18px, 3vw, 28px);
+}
+
+.detail-video h2 {
+  color: var(--cream);
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  letter-spacing: 0;
+  line-height: 1;
+  margin: 10px 0 18px;
+}
+
+.detail-video iframe {
+  aspect-ratio: 16 / 9;
+  border: 0;
+  border-radius: 18px;
+  display: block;
+  width: 100%;
 }
 
 .detail-sources {
@@ -2968,6 +3082,7 @@ html[data-custom-cursor="enabled"] [data-cursor="button"]:hover {
   .detail-hero-grid,
   .detail-content-grid,
   .detail-feature-grid,
+  .detail-feature-grid .detail-copy-card,
   .detail-gallery,
   .proof-strip,
   .showcase-timeline {

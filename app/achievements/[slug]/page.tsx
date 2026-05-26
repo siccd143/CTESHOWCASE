@@ -1,5 +1,6 @@
 import { SiteNav } from "@/components/site-nav";
 import { GlassFilter } from "@/components/ui/liquid-glass";
+import MarvelScrollMorph from "@/components/ui/marvel-scroll-morph";
 import { achievements, getAchievement } from "@/lib/portfolio-data";
 import { ArrowLeft, CheckCircle2, ExternalLink, ImageIcon } from "lucide-react";
 import Link from "next/link";
@@ -43,7 +44,11 @@ export default async function AchievementDetailPage({
             <p>{achievement.summary}</p>
           </div>
           {achievement.heroImage ? (
-            <figure className="detail-image-card">
+            <figure
+              className={`detail-image-card ${
+                achievement.slug === "wtsa-journey" ? "detail-image-card-contain" : ""
+              }`}
+            >
               <img src={achievement.heroImage.src} alt={achievement.heroImage.alt} />
               <figcaption>
                 <strong>{achievement.heroImage.caption}</strong>
@@ -53,7 +58,7 @@ export default async function AchievementDetailPage({
           ) : (
             <div className="detail-image-placeholder">
               <ImageIcon size={42} />
-              <span>Achievement image placeholder</span>
+              <span>Project image</span>
             </div>
           )}
         </div>
@@ -66,7 +71,7 @@ export default async function AchievementDetailPage({
           <p>{achievement.detail}</p>
         </article>
         <aside className="detail-copy-card">
-          <span className="section-kicker">Add Next</span>
+          <span className="section-kicker">Presentation Points</span>
           <div className="bullet-list">
             {achievement.bullets.map((bullet) => (
               <div key={bullet}>
@@ -100,6 +105,16 @@ export default async function AchievementDetailPage({
               <span className="section-kicker">{section.kicker}</span>
               <h2>{section.title}</h2>
               <p>{section.body}</p>
+              {section.links ? (
+                <div className="section-link-row">
+                  {section.links.map((link) => (
+                    <a href={link.href} key={link.label} rel="noreferrer" target="_blank">
+                      {link.label}
+                      <ExternalLink size={14} />
+                    </a>
+                  ))}
+                </div>
+              ) : null}
             </article>
           ))}
         </section>
@@ -124,6 +139,21 @@ export default async function AchievementDetailPage({
           ))}
         </section>
       ) : null}
+
+      {achievement.video ? (
+        <section className="detail-video">
+          <span className="section-kicker">Video</span>
+          <h2>{achievement.video.title}</h2>
+          <iframe
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowFullScreen
+            src={achievement.video.embedUrl}
+            title={achievement.video.title}
+          />
+        </section>
+      ) : null}
+
+      {achievement.slug === "minecraft-modding" ? <MarvelScrollMorph /> : null}
 
       {achievement.sources ? (
         <section className="detail-sources">
