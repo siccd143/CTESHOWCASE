@@ -1115,7 +1115,7 @@ html[data-custom-cursor="enabled"] [data-cursor="button"]:hover {
     linear-gradient(145deg, rgba(17, 17, 17, 0.94), rgba(10, 10, 10, 0.88)),
     radial-gradient(circle at 70% 18%, rgba(232, 64, 32, 0.2), transparent 28%);
   border: 1px solid var(--line);
-  border-radius: 28px;
+  border-radius: 34px;
   box-shadow: 0 28px 80px rgba(0, 0, 0, 0.48);
   min-height: 440px;
   overflow: hidden;
@@ -2203,7 +2203,7 @@ html[data-custom-cursor="enabled"] [data-cursor="button"]:hover {
   display: grid;
   gap: 28px;
   grid-template-columns: minmax(260px, 0.72fr) 1fr;
-  margin: 0 auto;
+  margin: 48px auto 0;
   max-width: 1180px;
   padding: 0 16px 96px;
 }
@@ -2538,6 +2538,27 @@ html[data-custom-cursor="enabled"] [data-cursor="button"]:hover {
   margin: 0;
 }
 
+.detail-feature-grid .detail-full-width-image-card {
+  align-items: stretch;
+  grid-template-columns: 1fr;
+}
+
+.detail-feature-grid .detail-full-width-image-card .detail-section-media {
+  aspect-ratio: auto;
+  grid-row: auto;
+  margin: 0 0 4px;
+  min-height: 0;
+  padding: 18px;
+}
+
+.detail-feature-grid .detail-full-width-image-card .detail-section-media img {
+  height: auto;
+  min-height: 0;
+  object-fit: contain;
+  position: relative;
+  z-index: 1;
+}
+
 .section-link-row {
   display: flex;
   flex-wrap: wrap;
@@ -2793,12 +2814,12 @@ html[data-custom-cursor="enabled"] [data-cursor="button"]:hover {
     radial-gradient(circle at 82% 22%, rgba(232, 64, 32, 0.2), transparent 28%),
     var(--panel);
   border: 1px solid var(--line);
-  border-bottom: 0;
-  border-radius: 28px 28px 0 0;
+  border-radius: 28px;
   color: white;
   display: flex;
   gap: 28px;
   justify-content: space-between;
+  margin-bottom: 72px;
   max-width: 1180px;
   padding-bottom: 34px;
   padding-top: 34px;

@@ -15,6 +15,7 @@ export const achievements = [
     summary:
       "My WTSA work across Webmaster, Programming, and Robotics events.",
     stat: "01",
+    storyTitle: "What I Learned At WTSA",
     detail:
       "WTSA gave me a way to turn technical interests into competition projects. My work connects web design, programming, and robotics: building polished interfaces, solving code problems under constraints, and applying engineering thinking to systems that have to be explained clearly and tested carefully.",
     bullets: ["Webmaster", "Programming", "Robotics", "Competition preparation"],
@@ -80,6 +81,7 @@ export const achievements = [
     summary:
       "My programming role on Issaquah Robotics Society, FRC Team 1318, with most of my hands-on work centered on the Exploration Bot.",
     stat: "02",
+    storyTitle: "What Robotics Taught Me",
     detail:
       "My role on IRS 1318 was mainly as a programmer. I worked most directly on the Exploration Bot, where I learned robot systems through testing, debugging, and code changes. I also helped the seniors as they built the main competition robot, which gave me a better understanding of how the mechanical, electrical, and software parts of a robot have to come together.",
     bullets: [
@@ -176,17 +178,42 @@ export const achievements = [
     title: "Hackathon Experience",
     eyebrow: "Build Sprint",
     summary:
-      "Hackathon work focused on fast prototyping, accessibility, computer vision, and presenting useful demos under pressure.",
+      "Hackathon work across ThinkCity Bellevue and Youth X Code, focused on fast prototyping, accessibility, computer vision, and presenting useful demos under pressure.",
     stat: "03",
+    storyTitle: "What I Built At Hackathons",
     detail:
-      "My hackathon work shows how I move from a real problem to a working technical prototype. The most important example is a Youth X Code project built around helping visually impaired people understand information from physical paper using a YOLO 26 computer vision model.",
+      "My hackathon work shows how I move from a real problem to a working technical prototype. ThinkCity Bellevue focused on a traffic incident reporter for illegally parked cars, while Youth X Code focused on an accessibility prototype using a YOLO 26 computer vision model to help visually impaired people understand information from physical paper.",
     bullets: [
+      "ThinkCity Bellevue project",
       "Youth X Code accessibility project",
       "YOLO 26 model training",
-      "Paper document analysis",
       "Prototype demo and presentation",
     ],
+    heroImage: {
+      src: "/images/showcase/mlh-logo.png",
+      alt: "Major League Hacking logo",
+      caption: "Major League Hacking",
+      credit: "Image source: Major League Hacking brand assets",
+    },
     sections: [
+      {
+        kicker: "ThinkCity Bellevue",
+        title: "Building A Practical Civic Prototype",
+        image: {
+          src: "/images/showcase/codingimage.jpg",
+          alt: "Coding workspace used as a traffic incident reporter project visual",
+          title: "Traffic Incident Reporter",
+          caption: "A ThinkCity Bellevue concept for reporting illegally parked cars and sharing part of the fine with the reporter.",
+        },
+        body:
+          "At ThinkCity Bellevue, I worked on a traffic incident reporter concept for illegally parked cars. The idea was that a user could report a parking problem, submit the needed evidence, and receive a cut of the fine if the report led to enforcement. The project helped me think about civic tech as a product: the workflow had to be simple for residents, useful for the city, and clear enough to explain quickly in a hackathon demo.",
+        links: [
+          {
+            label: "Traffic Reporter Site",
+            href: "https://brisk-wave-70636971.figma.site",
+          },
+        ],
+      },
       {
         kicker: "Youth X Code",
         title: "Training YOLO 26 For Paper Accessibility",
@@ -197,91 +224,163 @@ export const achievements = [
           caption: "Training a YOLO 26 model for the Youth X Code accessibility prototype.",
         },
         body:
-          "At another Youth X Code hackathon, I worked on an accessibility-focused prototype for visually impaired users. The idea was to train a YOLO 26 model to detect and analyze useful information from physical paper, then turn that visual information into something easier to understand. The project connected machine learning, dataset preparation, object detection, and human-centered design: the model was not just meant to recognize paper content, but to make printed information more usable for someone who cannot easily read it visually.",
-      },
-      {
-        kicker: "Computer Vision",
-        title: "From Physical Paper To Structured Information",
-        image: {
-          src: "/images/showcase/yolo26modeltrainingimg.webp",
-          alt: "YOLO 26 model training notebook in Google Colab",
-          title: "Paper Analysis Pipeline",
-          caption: "Training setup for the paper-analysis computer vision prototype.",
-        },
-        body:
-          "The technical challenge was translating a messy real-world object into reliable digital feedback. Physical paper can have different layouts, lighting, handwriting, printed text, diagrams, and important regions. Training the YOLO 26 model meant thinking about what needed to be detected, how training examples should be labeled, and how model output could support a clearer assistive experience instead of stopping at raw bounding boxes.",
-      },
-    ],
-    gallery: [
-      {
-        src: "/images/showcase/yolo26modeltrainingimg.webp",
-        alt: "YOLO 26 model training notebook in Google Colab",
-        title: "Training Setup",
-        caption: "The model training workflow behind the accessibility prototype.",
-      },
-      {
-        src: "/images/showcase/yolo26modeltrainingimg.webp",
-        alt: "YOLO 26 model training notebook in Google Colab",
-        title: "YOLO 26 Training",
-        caption: "Model training evidence from the Youth X Code paper-analysis prototype.",
-      },
-      {
-        src: "/images/showcase/yolo26modeltrainingimg.webp",
-        alt: "YOLO 26 model training notebook in Google Colab",
-        title: "Paper Analysis Prototype",
-        caption: "A computer vision workflow designed around making physical paper easier to understand.",
+          "At Youth X Code, I worked on an accessibility-focused prototype for visually impaired users. The idea was to train a YOLO 26 model to detect and analyze useful information from physical paper, then turn that visual information into something easier to understand. The project connected machine learning, dataset preparation, object detection, and human-centered design: the model was meant to make printed information more usable, not just recognize objects.",
       },
     ],
   },
   {
     slug: "minecraft-modding",
-    title: "Minecraft Modding",
+    title: "Crownfall Minecraft Mod",
     eyebrow: "Game Dev",
     summary:
-      "A technical page for custom Minecraft modding, plugin work, gameplay systems, and creative engineering.",
+      "A custom Minecraft mod project built around Crownfall: bosses, fantasy progression, custom visuals, and gameplay systems.",
     stat: "04",
+    storyTitle: "What Crownfall Is",
     detail:
-      "Minecraft modding let me combine creativity with technical problem solving. I used custom visuals and gameplay ideas to practice how small system changes can affect the feel of a game.",
-    bullets: ["Mod concept", "Core mechanics", "Code or tools", "Gameplay result"],
+      "Crownfall let me combine coding, game design, worldbuilding, and visual presentation into one modded Minecraft experience. The project is about making Minecraft feel like a custom fantasy adventure: new bosses, themed environments, custom items, combat ideas, and progression moments that feel bigger than a normal survival world.",
+    bullets: ["Crownfall mod", "Custom bosses", "Fantasy builds", "Gameplay systems"],
     heroImage: {
-      src: "/images/showcase/mcimg2.jpeg",
-      alt: "Minecraft custom mod showcase scene",
-      caption: "Custom Minecraft mod showcase",
+      src: "/images/showcase/crownfall-logo.png",
+      alt: "Crownfall logo with a crown and castle background",
+      caption: "Crownfall",
       credit: "Personal portfolio image",
     },
     sections: [
       {
-        kicker: "Custom Mod",
-        title: "Building A Different Game Feel",
+        kicker: "Crownfall",
+        title: "Building A Custom Fantasy Mod",
         image: {
-          src: "/images/showcase/mcimg2.jpeg",
-          alt: "Minecraft custom mod showcase scene",
-          title: "Custom Mod Visual",
-          caption: "The mod page focuses on custom gameplay, visuals, and the choices behind the experience.",
+          src: "/images/showcase/crownfall-emberclaw.png",
+          alt: "Emberclaw boss in a Crownfall Minecraft arena",
+          title: "Emberclaw",
+          caption: "A Crownfall boss encounter built around a larger fantasy setting and dramatic arena presentation.",
         },
         body:
-          "This project shows how modding can change how a game feels without needing to rebuild the whole game. I focused on how custom visuals, mechanics, and item ideas can make the experience feel more personal and intentional.",
+          "Crownfall is my custom Minecraft mod project. I used it to experiment with how new content can change the feeling of the game: bosses, builds, visuals, items, and progression all have to work together so the experience feels intentional instead of random. It gave me practice thinking like both a developer and a player.",
       },
-    ],
-    gallery: [
       {
-        src: "/images/showcase/mcimg2.jpeg",
-        alt: "Minecraft custom mod showcase scene",
-        title: "Custom Mod",
-        caption: "A visual example from the Minecraft modding work.",
+        kicker: "World Design",
+        title: "Castles, Arenas, And Progression Spaces",
+        image: {
+          src: "/images/showcase/crownfall-castle.png",
+          alt: "Crownfall Minecraft castle and fantasy environment",
+          title: "Crownfall Environment",
+          caption: "A custom build space for exploration, combat setup, and fantasy presentation.",
+        },
+        body:
+          "The visual side of Crownfall matters because the mod is not just code. Builds and arenas help explain what the player is walking into before any mechanics start. I worked on making spaces feel like they belong to the mod's theme, with dramatic structures, strong silhouettes, and areas that could support encounters or story moments.",
+      },
+      {
+        kicker: "Characters",
+        title: "Custom Enemies And Boss Identity",
+        image: {
+          src: "/images/showcase/crownfall-chromoknight.png",
+          alt: "Chromoknight character from the Crownfall Minecraft mod",
+          title: "Chromoknight",
+          caption: "A Crownfall enemy concept focused on making custom content feel recognizable and distinct.",
+        },
+        body:
+          "For Crownfall, I wanted enemies and bosses to feel like named parts of the world instead of generic mobs. Characters like Chromoknight helped me think about identity, combat role, presentation, and how a player understands what kind of challenge they are facing.",
+      },
+      {
+        kicker: "Image Slot",
+        title: "Custom Items And Gear",
+        image: {
+          src: "/images/showcase/crownfall-items-gear.jpeg",
+          alt: "Crownfall Minecraft player wearing gear and holding a weapon at sunset",
+          title: "Custom Items And Gear",
+          caption: "Crownfall gear and weapons help make the mod feel like a custom adventure with its own progression.",
+        },
+        body:
+          "This section is ready for screenshots of custom Crownfall items, gear, drops, or inventory content. It can show how the mod rewards players and how item design connects to progression.",
+      },
+      {
+        kicker: "Image Slot",
+        title: "Gameplay And Testing",
+        image: {
+          src: "/images/showcase/crownfall-gameplay-testing.jpeg",
+          alt: "Crownfall Minecraft gameplay testing screenshot with a player holding custom gear",
+          title: "Gameplay And Testing",
+          caption: "Testing Crownfall in-game helped tune the feel of custom gear, visuals, and moment-to-moment play.",
+        },
+        body:
+          "This section is ready for future gameplay images from testing. It can show how the mod feels in motion: combat behavior, encounter pacing, balancing changes, and the practical debugging work behind the finished experience.",
       },
     ],
   },
   {
     slug: "issaquah-spotlight",
     title: "Issaquah Spotlight",
-    eyebrow: "Current Work",
+    eyebrow: "Volunteer Web Work",
     summary:
-      "Current work connected to the Issaquah Spotlight, built to highlight ongoing contribution and local impact.",
+      "A volunteer website role for The Issaquah Spotlight, a community-focused publication built around local knowledge and connection.",
     stat: "05",
+    storyTitle: "What Is Issaquah Spotlight?",
     detail:
-      "Issaquah Spotlight represents current work and local impact. This page explains the goal, my role, what progress looks like, and how the project connects to communication, service, and technical presentation.",
-    bullets: ["Current goal", "My role", "Progress updates", "Next milestone"],
+      "I was recently invited to help build the website for The Issaquah Spotlight as a volunteer. The project matters to me because it connects technical skills with local community work: making information easier to publish, easier to find, and easier for people in Issaquah to trust and use.",
+    bullets: [
+      "Volunteer website contributor",
+      "Invited to help build the site",
+      "Community knowledge and local impact",
+      "Web design, structure, and presentation",
+    ],
+    heroImage: {
+      src: "/images/showcase/issaquah-spotlight-logo.png",
+      alt: "Issaquah Spotlight lamp icon logo",
+      caption: "The Issaquah Spotlight",
+      credit: "Image source: Issaquah Spotlight",
+    },
+    sections: [
+      {
+        kicker: "My Role",
+        title: "Volunteer Website Contributor",
+        image: {
+          src: "/images/showcase/volunteer.png",
+          alt: "Volunteer text with colorful raised hands",
+          title: "Volunteer Work",
+          caption: "My role with The Issaquah Spotlight is volunteer-based and focused on helping the community project grow online.",
+        },
+        body:
+          "I was invited to volunteer with The Issaquah Spotlight to help build and improve their website. My role is connected to web structure, presentation, and making the site feel useful for readers, contributors, and the people organizing the project.",
+        links: [
+          {
+            label: "Issaquah Spotlight Website",
+            href: "https://issaquahspotlight.org/",
+          },
+        ],
+      },
+      {
+        kicker: "Community Impact",
+        title: "Building Community Through Knowledge",
+        fullWidthImage: true,
+        image: {
+          src: "/images/showcase/issaquah-spotlight-banner.jpg",
+          alt: "The Issaquah Spotlight community banner",
+          title: "Community Publication",
+          caption: "The site is meant to help local stories, resources, and information become easier to access.",
+        },
+        body:
+          "The goal of the site is not just to look polished. It needs to support a real local mission: helping people learn what is happening around Issaquah, share useful information, and build stronger community awareness. Working on it helps me practice web design in a setting where clarity, trust, and accessibility matter.",
+      },
+      {
+        kicker: "Current Work",
+        title: "Turning Skills Into Service",
+        image: {
+          src: "/images/showcase/skills-to-service.png",
+          alt: "People collaborating around a table with notes and notebooks",
+          title: "Skills Into Service",
+          caption: "The project turns web and communication skills into volunteer work for a real community organization.",
+        },
+        body:
+          "This project is still active, so the most important part right now is contribution: listening to what the organization needs, helping turn ideas into website improvements, and using my CTE and web experience for something outside of a classroom assignment. It is a good example of technical skills becoming volunteer service.",
+      },
+    ],
+    sources: [
+      {
+        label: "The Issaquah Spotlight",
+        href: "https://issaquahspotlight.org/",
+      },
+    ],
   },
 ];
 

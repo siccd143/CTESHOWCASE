@@ -6,41 +6,12 @@ import { achievements } from "@/lib/portfolio-data";
 import {
   ArrowRight,
   Code2,
-  Cpu,
-  Layers3,
   Rocket,
   Sparkles,
   Target,
   Trophy,
 } from "lucide-react";
 import Link from "next/link";
-
-const projects = [
-  {
-    title: "CTE Showcase Website",
-    tag: "Frontend",
-    detail:
-      "A custom portfolio built around cinematic interaction, achievement pages, responsive layouts, and a clear personal story.",
-    icon: Layers3,
-    proof: ["Next.js", "Motion", "Design system"],
-  },
-  {
-    title: "IRS 1318 Robotics",
-    tag: "Engineering",
-    detail:
-      "Programming-focused robotics work, mainly on the Exploration Bot, while helping seniors with the main FRC robot.",
-    icon: Cpu,
-    proof: ["Programming", "Exploration Bot", "Team support"],
-  },
-  {
-    title: "WTSA Competition Work",
-    tag: "Competition",
-    detail:
-      "Webmaster, Programming, and Robotics work organized into judge-ready sections with image slots and project evidence.",
-    icon: Trophy,
-    proof: ["Webmaster", "Programming", "Robotics"],
-  },
-];
 
 const timeline = [
   {
@@ -202,40 +173,6 @@ export default function Home() {
             <Code2 size={20} />
             <span>What would I improve if I rebuilt one project from the start?</span>
           </div>
-        </div>
-      </section>
-
-      <section className="section-block" id="projects">
-        <div className="section-heading">
-          <span>Projects</span>
-          <h2>Projects I can explain in person</h2>
-          <p>
-            These cards point people toward the work that best shows range:
-            design, programming, robotics, and competition preparation.
-          </p>
-        </div>
-        <div className="program-grid">
-          {projects.map((project) => {
-            const Icon = project.icon;
-            return (
-              <article className="program-card" key={project.title}>
-                <div className="image-placeholder project-proof-visual">
-                  <span>{project.tag}</span>
-                  <Icon size={34} />
-                </div>
-                <div className="program-body">
-                  <div className="program-tag">{project.tag}</div>
-                  <h3>{project.title}</h3>
-                  <p>{project.detail}</p>
-                  <div className="project-proof-tags">
-                    {project.proof.map((item) => (
-                      <span key={item}>{item}</span>
-                    ))}
-                  </div>
-                </div>
-              </article>
-            );
-          })}
         </div>
       </section>
 

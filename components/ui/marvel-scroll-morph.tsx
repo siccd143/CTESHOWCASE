@@ -9,7 +9,34 @@ import {
   useTransform,
 } from "framer-motion";
 
-const frames = [
+const crownfallFrames = [
+  {
+    title: "Emberclaw",
+    subtitle: "Crownfall boss encounter",
+    gradient: "linear-gradient(135deg, #ff5a00 0%, #641b14 42%, #000 100%)",
+    pattern:
+      "radial-gradient(circle at 30% 30%, rgba(255,255,255,.35), transparent 12%), radial-gradient(circle at 70% 60%, rgba(255,255,255,.18), transparent 10%)",
+    image: "/images/showcase/crownfall-emberclaw.png",
+  },
+  {
+    title: "Crownfall",
+    subtitle: "Fantasy build spaces",
+    gradient: "linear-gradient(135deg, #8a2118 0%, #1f1110 48%, #000 100%)",
+    pattern:
+      "linear-gradient(120deg, rgba(255,255,255,.26) 0 2px, transparent 2px 22px)",
+    image: "/images/showcase/crownfall-castle.png",
+  },
+  {
+    title: "Chromoknight",
+    subtitle: "Custom enemy identity",
+    gradient: "linear-gradient(135deg, #d7c3a1 0%, #6b5f4e 44%, #000 100%)",
+    pattern:
+      "linear-gradient(45deg, rgba(255,255,255,.2) 0 1px, transparent 1px 18px)",
+    image: "/images/showcase/crownfall-chromoknight.png",
+  },
+];
+
+const autoFlashFrames = [
   {
     title: "Exploration Bot",
     subtitle: "Hands-on robot build and testing",
@@ -78,24 +105,24 @@ function MorphFrame({
   index,
   progress,
 }: {
-  frame: (typeof frames)[number];
+  frame: (typeof crownfallFrames)[number];
   index: number;
   progress: MotionValue<number>;
 }) {
-  const start = index / frames.length;
-  const peak = (index + 0.5) / frames.length;
-  const end = (index + 1) / frames.length;
+  const start = index / crownfallFrames.length;
+  const peak = (index + 0.5) / crownfallFrames.length;
+  const end = (index + 1) / crownfallFrames.length;
 
   const opacity = useTransform(
     progress,
     index === 0
       ? [0, peak, end]
-      : index === frames.length - 1
+      : index === crownfallFrames.length - 1
         ? [start, peak, 1]
         : [start, peak, end],
     index === 0
       ? [1, 1, 0]
-      : index === frames.length - 1
+      : index === crownfallFrames.length - 1
         ? [0, 1, 1]
         : [0, 1, 0],
   );
@@ -129,18 +156,6 @@ function MorphFrame({
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,rgba(0,0,0,.18)_38%,rgba(0,0,0,.88)_100%)]" />
       <div className="absolute inset-0 flex items-center justify-center px-6">
         <div className="text-center">
-          <motion.div
-            className="mx-auto mb-8 flex h-44 w-44 items-center justify-center rounded-[2rem] border border-white/25 bg-white/10 shadow-[0_0_100px_rgba(255,90,0,.32)] backdrop-blur-md md:h-64 md:w-64"
-            animate={{
-              rotate: [0, 4, -4, 0],
-              scale: [1, 1.04, 1],
-            }}
-            transition={{ duration: 3.2, repeat: Infinity, ease: "easeInOut" }}
-          >
-            <span className="text-sm font-black tracking-[0.45em] text-white/55">
-              {String(index + 1).padStart(2, "0")}
-            </span>
-          </motion.div>
           <h2 className="text-6xl font-black tracking-tight text-white md:text-9xl">
             {frame.title}
           </h2>
@@ -158,19 +173,19 @@ export function FlashFramePreview() {
 
   useEffect(() => {
     const frameTimer = window.setInterval(() => {
-      setActiveFrame((current) => (current + 1) % frames.length);
+      setActiveFrame((current) => (current + 1) % autoFlashFrames.length);
     }, 500);
 
     return () => window.clearInterval(frameTimer);
   }, []);
 
-  const frame = frames[activeFrame];
+  const frame = autoFlashFrames[activeFrame];
 
   return (
     <section className="flash-preview-section px-4 py-20 md:py-24">
       <div className="mx-auto w-full max-w-6xl">
         <div className="flash-preview-reel">
-          {frames.map((previewFrame, index) => (
+          {autoFlashFrames.map((previewFrame, index) => (
             <motion.div
               aria-hidden={index !== activeFrame}
               className="flash-preview-frame"
@@ -213,7 +228,7 @@ export function FlashFramePreview() {
           </div>
 
           <div className="flash-preview-ticks" aria-hidden="true">
-            {frames.map((previewFrame, index) => (
+            {autoFlashFrames.map((previewFrame, index) => (
               <span
                 className={index === activeFrame ? "is-active" : ""}
                 key={previewFrame.title}
@@ -335,28 +350,13 @@ export default function MarvelScrollMorph() {
 
   return (
     <>
-      <section className="flex min-h-screen items-center justify-center px-6 text-center">
-        <div className="max-w-5xl">
-          <p className="mb-4 text-sm uppercase tracking-[0.45em] text-white/45">
-            Scroll Demo
-          </p>
-          <h1 className="text-6xl font-black tracking-tight text-white md:text-8xl">
-            Cinematic achievement morph
-          </h1>
-          <p className="mx-auto mt-7 max-w-2xl text-xl text-white/65">
-            Scroll down to see achievement frames flash, blur, scale, and blend
-            into each other like a movie intro.
-          </p>
-        </div>
-      </section>
-
       <section
         ref={sectionRef}
         className={`relative min-h-screen ${isLocked ? "is-reel-locked" : ""}`}
       >
         <div className="z-10 flex h-screen items-center justify-center overflow-hidden px-2 md:px-6">
           <div className="relative h-[86vh] w-full max-w-[96rem] overflow-hidden rounded-[2.5rem] border border-white/15 bg-white/5 shadow-2xl">
-            {frames.map((frame, index) => (
+            {crownfallFrames.map((frame, index) => (
               <MorphFrame
                 frame={frame}
                 index={index}

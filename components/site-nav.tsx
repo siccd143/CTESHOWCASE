@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { GlassEffect } from "@/components/ui/liquid-glass";
 import { navItems } from "@/lib/portfolio-data";
-import { ArrowRight, Settings, Sparkles } from "lucide-react";
+import { ArrowRight, BriefcaseBusiness, Settings } from "lucide-react";
 import Link from "next/link";
 
 const CUSTOM_CURSOR_KEY = "customCursorEnabled";
@@ -37,7 +37,7 @@ export function SiteNav() {
       <header className="topbar">
         <Link className="brand" href="/" aria-label="Ayaan Bijinemula home">
           <span className="brand-mark">
-            <Sparkles size={18} />
+            <BriefcaseBusiness size={18} />
           </span>
           <span>Ayaan Bijinemula</span>
         </Link>

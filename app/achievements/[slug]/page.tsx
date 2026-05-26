@@ -46,7 +46,9 @@ export default async function AchievementDetailPage({
           {achievement.heroImage ? (
             <figure
               className={`detail-image-card ${
-                achievement.slug === "wtsa-journey" ? "detail-image-card-contain" : ""
+                ["wtsa-journey", "hackathon-experience"].includes(achievement.slug)
+                  ? "detail-image-card-contain"
+                  : ""
               }`}
             >
               <img src={achievement.heroImage.src} alt={achievement.heroImage.alt} />
@@ -64,10 +66,12 @@ export default async function AchievementDetailPage({
         </div>
       </section>
 
+      {achievement.slug === "minecraft-modding" ? <MarvelScrollMorph /> : null}
+
       <section className="detail-content-grid">
         <article className="detail-copy-card">
           <span className="section-kicker">Story</span>
-          <h2>What this page should prove</h2>
+          <h2>{achievement.storyTitle}</h2>
           <p>{achievement.detail}</p>
         </article>
         <aside className="detail-copy-card">
@@ -86,7 +90,14 @@ export default async function AchievementDetailPage({
       {achievement.sections ? (
         <section className="detail-feature-grid">
           {achievement.sections.map((section) => (
-            <article className="detail-copy-card" key={section.title}>
+            <article
+              className={`detail-copy-card ${
+                "fullWidthImage" in section && section.fullWidthImage
+                  ? "detail-full-width-image-card"
+                  : ""
+              }`}
+              key={section.title}
+            >
               {section.image ? (
                 <figure className="detail-section-media">
                   {section.image.src ? (
@@ -152,8 +163,6 @@ export default async function AchievementDetailPage({
           />
         </section>
       ) : null}
-
-      {achievement.slug === "minecraft-modding" ? <MarvelScrollMorph /> : null}
 
       {achievement.sources ? (
         <section className="detail-sources">
